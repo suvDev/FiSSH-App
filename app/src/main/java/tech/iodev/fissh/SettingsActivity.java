@@ -35,9 +35,10 @@ public class SettingsActivity extends AppCompatActivity {
 
     public void save_settings(View sender)
     {
-        if(computerIP.getText().toString().equals("")){
+        if(computerIP.getText().toString().equals(""))
             computerIP.setError("Please input the ip of your computer");
-        }else {
+
+        else {
             Intent result = new Intent();
             result.putExtra("computer_ip", computerIP.getText().toString());
             result.putExtra("password", password.getText().toString());
