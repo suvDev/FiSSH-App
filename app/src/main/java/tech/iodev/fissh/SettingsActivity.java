@@ -35,15 +35,19 @@ public class SettingsActivity extends AppCompatActivity {
 
     public void save_settings(View sender)
     {
-        Intent result = new Intent();
-        result.putExtra("computer_ip", computerIP.getText().toString());
-        result.putExtra("password", password.getText().toString());
-        result.putExtra("nickname", nickname.getText().toString());
+        if(computerIP.getText().toString().equals("")){
+            computerIP.setError("Please input the ip of your computer");
+        }else {
+            Intent result = new Intent();
+            result.putExtra("computer_ip", computerIP.getText().toString());
+            result.putExtra("password", password.getText().toString());
+            result.putExtra("nickname", nickname.getText().toString());
 
-        if (ID != -1) result.putExtra("id", ID);
+            if (ID != -1) result.putExtra("id", ID);
 
-        setResult(RESULT_OK, result);
-        finish();
+            setResult(RESULT_OK, result);
+            finish();
+        }
     }
 
 }
